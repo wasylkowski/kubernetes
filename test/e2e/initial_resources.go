@@ -40,7 +40,7 @@ var _ = framework.KubeDescribe("Initial Resources [Feature:InitialResources] [Fl
 		cpu := 100
 		mem := 200
 		for i := 0; i < 10; i++ {
-			rc := common.NewStaticResourceConsumer(fmt.Sprintf("ir-%d", i), 1, cpu, mem, 0, int64(2*cpu), int64(2*mem), f)
+			rc := common.NewStaticResourceConsumer(fmt.Sprintf("ir-%d", i), common.KindRC, 1, cpu, mem, 0, int64(2*cpu), int64(2*mem), f)
 			defer rc.CleanUp()
 		}
 		// Wait some time to make sure usage data is gathered.
